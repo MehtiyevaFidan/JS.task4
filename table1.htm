@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0f7fa; 
+        }
+        table { 
+            border-collapse: collapse; 
+            font: bold 1.6em Arial; 
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        td { 
+            border: 2px solid #333; 
+            text-align: center; 
+            width: 60px; 
+            height: 60px; 
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border-radius: 8px;
+        }
+        .blue { 
+            background: #bbdefb;
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.2) 75%),
+                              linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.2) 75%);
+            background-size: 20px 20px;
+        }
+        .purple { 
+            background: #e1bee7;
+            background-image: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.2) 75%),
+                              linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.2) 75%);
+            background-size: 20px 20px;
+        }
+        td:hover { 
+            background-color: #ffff00; 
+            transform: scale(1.1); 
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); 
+        }
+    </style>
+</head>
+<body>
+    <table id="cdv"></table>
+
+    <script>
+        const cdv = document.getElementById("cdv");
+        let kod = '';
+        for (let i = 1; i <= 5; i++) {
+            kod += '<tr>';
+            for (let j = 1; j <= 5; j++) {
+                let className = (i + j) % 2 ? 'blue' : 'purple';
+                kod += `<td class="${className}"></td>`;
+            }
+            kod += '</tr>';
+        }
+        cdv.innerHTML = kod;
+    </script>
+</body>
+</html>

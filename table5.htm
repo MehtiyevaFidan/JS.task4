@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #FCE4EC;
+        }
+        .divtbl {
+            margin: 10vh auto;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #tbl {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font: 500 1em Helvetica, sans-serif;
+            color: #FFFFFF;
+            background-color: #FF66B2;
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), 
+                        inset 4px 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        td:hover {
+            background: linear-gradient(45deg, #FF66B2, #BF5FFF);
+            color: #FFFF00;
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="divtbl">
+    <table id="tbl"></table>
+</div>
+<script>
+    const table = document.querySelector("table");
+    let kod = '';
+    let reqem = 1; 
+    for (let i = 1; i <= 8; i++) {
+        kod += `<tr>`;
+        for (let j = 1; j <= 8; j++) {
+            let backgroundColor = '';
+            if (i <= j && (i + j) <= 9 || i >= j && (i + j) >= 9) {
+                backgroundColor = '#FF66B2';
+            }
+            else {
+                backgroundColor = '#FF99CC';
+            }
+            kod += `<td style="background:${backgroundColor};">${reqem}</td>`;
+            reqem++; 
+        }
+        kod += `</tr>`;
+    }
+    table.innerHTML = kod;
+</script>
+</body>
+</html>

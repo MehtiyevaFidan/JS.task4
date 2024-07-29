@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .divtbl {
+            margin: 10vh auto;
+            width: 400px;
+            background-color: #540dc7e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            border-radius: 100px;
+        }
+        #tbl {
+            border-collapse: collapse;
+        }
+        td {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            color: #fff;
+            transition: .6s;
+            border-radius: 10px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        .red {
+            background-color: #FF6F61; 
+            transition: .3s;
+            box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), 
+                        inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+        } 
+        .red:hover {
+            box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                        10px 10px 15px rgba(70, 70, 70, 0.12);
+            background-color: #FF8A65;
+            transform: scale(1.1); 
+        }
+        .green {
+            background-color: #4DB6AC; 
+            transition: .3s;
+            box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                        10px 10px 15px rgba(70, 70, 70, 0.12);
+        }
+        .green:hover {
+            box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), 
+                        inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+            background-color: #80CBC4; 
+            transform: scale(1.1); /
+        }
+    </style>
+</head>
+<body>
+    <div class="divtbl">
+        <table id="tbl"></table>
+    </div>
+    <script>
+        const tbl = document.querySelector("#tbl");
+        let kod = '';
+
+        for (let i = 1; i <= 4; i++) {
+            kod += `<tr>`;
+            for (let j = 1; j <= 4; j++) {
+                if ((j % 2 == 1)) {
+                    kod += `<td class='green'></td>`;
+                } else {
+                    kod += `<td class='red'></td>`;
+                }
+            }
+            kod += `</tr>`;
+        }
+        tbl.innerHTML = kod;
+    </script>
+</body>
+</html>

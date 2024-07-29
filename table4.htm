@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body {
+            height: 100%;
+            margin: 0;
+            padding-top: 100px;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+     
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            font: 500 1.5em Arial, sans-serif;
+            color: #fff;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            border: 2px solid #B3E5FC;
+        }
+        .color1 {
+            background: linear-gradient(135deg, #FFAB91 50%, #FF8A65 50%);
+            background-size: 200% 200%;
+            background-position: 100% 0;
+        }
+        .color2 {
+            background: linear-gradient(135deg, #A5D6A7 50%, #81C784 50%);
+            background-size: 200% 200%;
+            background-position: 100% 0;
+        }
+        .color1:hover {
+            background-position: 0 0;
+            box-shadow: 0px 4px 12px rgba(255, 87, 34, 0.6);
+            transform: rotate(10deg) scale(1.1);
+        }
+        .color2:hover {
+            background-position: 0 0;
+            box-shadow: 0px 4px 12px rgba(76, 175, 80, 0.6);
+            transform: rotate(-10deg) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="divtbl">
+        <table id="tbl"></table>
+    </div>
+
+    <script>
+        const tbl = document.querySelector("#tbl");
+        let kod = '';
+
+        for (let i = 1; i <= 4; i++) {
+            kod += `<tr>`;
+            for (let j = 1; j <= 4; j++) {
+                if (i % 2 === 0) {
+                    kod += `<td class="color1"></td>`;
+                } else {
+                    kod += `<td class="color2"></td>`;
+                }
+            }
+            kod += `</tr>`;
+        }
+        tbl.innerHTML = kod;
+    </script>
+</body>
+</html>

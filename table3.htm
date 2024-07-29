@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #3C1053; 
+            color: #E0E0E0; 
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 10vh auto;
+            width: 400px;
+            height: 400px;
+        }
+        td {
+            transition: .3s;
+            border: 2px solid #6D28D9; 
+            border-radius: 50%; 
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .lightred {
+            background-color: #ffc5bc; 
+        }
+        .red {
+            background-color: #FF6F61; 
+        }
+        .red:hover {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3),
+                        0px 1px 3px rgba(0, 0, 0, 0.1);
+            transform: scale(1.1) rotate(5deg); 
+        }
+        .lightred:hover {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3),
+                        0px 1px 5px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05) rotate(-5deg); 
+        }
+    </style>
+</head>
+<body>
+    <table id="tbl"></table>
+
+    <script>
+        const tbl = document.querySelector("#tbl");
+        let kod = '';
+
+        for (let i = 1; i <= 4; i++) {
+            kod += `<tr>`;
+            for (let j = 1; j <= 4; j++) {
+                if (j <= i - 1) {
+                    kod += `<td class="lightred"></td>`;
+                } else {
+                    kod += `<td class="red"></td>`;
+                }
+            }
+            kod += `</tr>`;
+        }
+        tbl.innerHTML = kod;
+    </script>
+</body>
+</html>
